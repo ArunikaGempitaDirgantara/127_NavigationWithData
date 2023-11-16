@@ -25,13 +25,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.esteh.HalamanIsiData
 import com.example.esteh.R
 import com.example.esteh.data.SumberData
 
 enum class PengelolaHalaman {
     Home,
     Rasa,
-    Summary
+    Summary,
+    Data
 }
 
 @Composable
@@ -99,6 +101,15 @@ fun EsTehApp (
                     onCancelButtonClicked = {cancelOrderAndNavigateToRasa(navController) },
                     //onSendButtonClicked = { subject: String, summary: String -> }
                     )
+            }
+            composable(
+                route = PengelolaHalaman.Data.name
+            ) {
+                HalamanIsiData(
+                    onSubmitButtonClick = {
+                        viewModel.setContact(it)
+                    }
+                )
             }
             }
         }
