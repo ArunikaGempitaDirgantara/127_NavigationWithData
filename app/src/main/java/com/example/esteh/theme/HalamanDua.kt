@@ -30,7 +30,10 @@ fun HalamanDua (
 ) {
     val items = listOf(
         Pair(stringResource(R.string.quantity), orderUIState.jumlah),
-        Pair(stringResource(R.string.flavor), orderUIState.rasa)
+        Pair(stringResource(R.string.flavor), orderUIState.rasa),
+        Pair(stringResource(R.string.nama), orderUIState.nama),
+        Pair(stringResource(R.string.noTelp), orderUIState.noTelp),
+        Pair(stringResource(R.string.alamat), orderUIState.alamat)
     )
 
     Column (
@@ -49,7 +52,9 @@ fun HalamanDua (
                 }
                 Divider(thickness = dimensionResource(R.dimen.thickness_divider))
             }
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small))
+            )
+
             FormatLabelHarga(
                 subtotal = orderUIState.harga,
                 modifier = Modifier.align(Alignment.End)
